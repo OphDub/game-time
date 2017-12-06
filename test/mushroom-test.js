@@ -9,29 +9,29 @@ describe('Mushroom', function() {
     mushroom = new Mushroom();
   });
 
-  it('should return true', function() {
+  it('expect to return true', function() {
     expect(true).to.equal(true);
   });
 
-  it('should have a default height and a width', function() {
+  it('expect to have a default height and a width', function() {
     expect(mushroom.height).to.equal(24);
     expect(mushroom.width).to.equal(24);
   });
 
-  it('should have a default x and y', function() {
+  it('expect to have a default x and y', function() {
     expect(mushroom.x).to.equal(mushroom.x);
     expect(mushroom.y).to.equal(mushroom.y);
   });
 
-  it('should have a default color', function() {
+  it('expect to have a default color', function() {
     expect(mushroom.color).to.equal('green');
   })
 
-  it('should have a default number of lives', function() {
+  it('expcet to have a default number of lives', function() {
     expect(mushroom.lives).to.equal(4);
   });
 
-  it('should be able to take x and y arguments', function() {
+  it('expect to be able to take x and y arguments', function() {
     mushroom = new Mushroom(50, 50);
 
     expect(mushroom.x).to.equal(50);
