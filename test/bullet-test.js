@@ -2,6 +2,7 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Bullet = require('../lib/bullet.js');
+const Mushroom = require('../lib/mushroom.js');
 
 describe('Bullet', function() {
   let bullet;
