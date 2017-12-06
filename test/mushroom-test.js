@@ -19,10 +19,13 @@ describe('Mushroom', function() {
   });
 
   it('should have a default x and y', function() {
-
     expect(mushroom.x).to.equal(mushroom.x);
     expect(mushroom.y).to.equal(mushroom.y);
   });
+
+  it('should have a default color', function() {
+    expect
+  })
 
   it('should be able to take x and y arguments', function() {
     mushroom = new Mushroom(50, 50);
