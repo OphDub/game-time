@@ -1,7 +1,7 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Bullet = require('../lib/player-bullet.js');
+const Bullet = require('../lib/bullet.js');
 
 describe('Bullet', function() {
   let bullet;
