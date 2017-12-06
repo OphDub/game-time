@@ -94,8 +94,29 @@ describe('CentipedeSeg', function() {
     expect(centipedeSeg.y).to.equal(60);    
   });
 
-  it('expect to move up one grid when segment reaches the bottom canvas wall', function() {
+  it('expect to change y velocity and move up one grid when segment reaches the bottom canvas restraint', function() {
+    let centipedeSeg = new CentipedeSeg(12, 730, -6, 24, 12, 'blue');
+    centipedeSeg.move();
 
+    expect(centipedeSeg.dy).to.equal(24);
+    expect(centipedeSeg.y).to.equal(730);
+
+    centipedeSeg.move();
+
+    expect(centipedeSeg.dy).to.equal(-24);
+    expect(centipedeSeg.y).to.equal(706);
+  });
+
+  it('expect to constrain segment movement to bottom of canvas when it reaches bottom canvas restraint', function() {
+    let centipedeSeg = new CentipedeSeg(12, 730, -6, 24, 12, 'blue');
+
+    centipedeSeg.move();
+
+    expect(centipedeSeg.reachedLowerHalf).to.equal(false);
+
+    centipedeSeg.move();
+
+    expect(centipedeSeg.reachedLowerHalf).to.equal(true);
   });
 
 });
