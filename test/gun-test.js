@@ -19,27 +19,41 @@ describe('Gun', function() {
     bullet = new Bullet(player.x, player.y);
   });
   
-  it.skip('should be able to draw bullets', function() {
-
+  it('expects to have a player', function() {
+    expect(gun.player).to.equal(gun.player);
   });
 
-  it.skip('should be able to shoot', function() {
+  it('expects to have an empty array', function() {
+    expect(gun.bulletArray.length).to.equal(0);
+  });
+
+  it('expects the isShooting property to be false', function() {
+    expect(gun.isShooting).to.equal(false);
+  });
+
+  it('expects to create bullets', function() {
+    expect(gun.bulletArray.length).to.equal(0);
+    gun.createBullets();
+    expect(gun.bulletArray.length).to.equal(1);
+  });
+
+  it.skip('expects be able to shoot', function() {
     //Pre-condition:
     //gun.isShooting = true;
-
-    //call gun.shoot();
+    expect(gun.bulletArray.length).to.equal(0);
+    //gun.shoot();
 
     //gun.createBullets() is called?
     //gun.isShooting = false;
   });
 
-  it.skip('should create bullets', function() {
+  it.skip('expects create bullets', function() {
     gun.createBullets();
     expect(bullet.x).to.equal(player.x + player.width/2 -1);
     expect(bullet.y).to.equal(player.y - 3);
   });
 
-  it.skip('should be able to collide bullets and mushrooms', function() {
+  it.skip('expects be able to collide bullets and mushrooms', function() {
 
   });
 });
