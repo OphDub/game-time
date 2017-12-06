@@ -1,5 +1,9 @@
+body {
+  background-color: black;
+}
+
 #game {
-  border: 1px dashed;
+  border: 1px dashed white;
   margin: auto;
   display: block;
 }

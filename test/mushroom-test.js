@@ -24,8 +24,12 @@ describe('Mushroom', function() {
   });
 
   it('should have a default color', function() {
-    expect
+    expect(mushroom.color).to.equal('green');
   })
+
+  it('should have a default number of lives', function() {
+    expect(mushroom.lives).to.equal(4);
+  });
 
   it('should be able to take x and y arguments', function() {
     mushroom = new Mushroom(50, 50);
