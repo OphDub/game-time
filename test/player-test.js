@@ -41,6 +41,10 @@ describe('Player', function() {
     expect(player.color).to.equal(player.color);
   });
 
+  it('expects to have a score', function() {
+    expect(player.score).to.equal(0);
+  });
+
   it('expects to have 3 lives', function() {
     expect(player.lives).to.equal(3);
   });

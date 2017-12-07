@@ -44,7 +44,7 @@ describe('Gun', function() {
     expect(mushroom.height).to.equal(24);
     expect(gun.bulletArray.length).to.equal(1);
 
-    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray, player);
 
     expect(shroomArray.length).to.equal(1);
     expect(gun.bulletArray.length).to.equal(0);
@@ -61,13 +61,13 @@ describe('Gun', function() {
     expect(mushroom.lives).to.equal(4);
     expect(gun.bulletArray.length).to.equal(1);
 
-    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray, player);
     gun.bulletArray = [bullet];
-    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray, player);
     gun.bulletArray = [bullet];
-    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray, player);
     gun.bulletArray = [bullet];
-    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray, player);
 
     expect(shroomArray.length).to.equal(0);
   });
