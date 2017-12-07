@@ -1,7 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-// const CentipedeSeg = require('../lib/centipede-seg.js');
+const CentipedeSeg = require('../lib/centipede-seg.js');
+const CentipedeWhole = require('../lib/centipede-whole.js');
 // const Bullet = require('../lib/bullet.js');
 // const Mushroom = require('../lib/mushroom.js');
 // const Player = require('../lib/player.js');
@@ -14,6 +15,7 @@ describe('Game', function() {
   beforeEach(function() {
     canvas = { width: 720, height: 768 }
     game = new Game(canvas, context);
+    centipede = new CentipedeWhole();
   });
 
   it('expects to have a canvas and context', function() {
@@ -43,7 +45,9 @@ describe('Game', function() {
   });
 
   it.skip('expects to have startGame method', function() {
-
+    game.startGame();
+    expect(centipede.segmentsArray.length).to.equal(1);
+    expect(game.mushoomArray.length).to.equal(45);
   });
 
   it('expects to have a winGame method', function() {
