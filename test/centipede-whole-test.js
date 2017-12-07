@@ -21,6 +21,10 @@ describe('CentipedeWhole', function() {
     expect(centipede.segmentsArray).to.deep.equal([[]]);
   });
 
+  it('expects to have a level of 1 by default', function() {
+    expect(centipede.level).to.equal(1);
+  });
+
   it('expects to make an array of an array of 12 segments when created', function() {
     centipede.createCentipede();
 
@@ -47,6 +51,7 @@ describe('CentipedeWhole', function() {
     let seg1 = new CentipedeSeg(120, 120, 6, 6, 12);
     let seg2 = new CentipedeSeg(144, 120, 6, 6, 12);
     let seg3 = new CentipedeSeg(168, 120, 6, 6, 12);
+    
     centipede.segmentsArray[0] = [seg1, seg2, seg3];
 
     expect(centipede.segmentsArray[0].length).to.equal(3);
