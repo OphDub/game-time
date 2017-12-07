@@ -5,7 +5,6 @@ const CentipedeSeg = require('../lib/centipede-seg.js');
 const Bullet = require('../lib/bullet.js');
 const Mushroom = require('../lib/mushroom.js');
 const Player = require('../lib/player.js');
-const Game = require('../lib/game.js'); 
 
 describe('CentipedeSeg', function() {
   let centipedeSeg;
