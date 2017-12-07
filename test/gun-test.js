@@ -4,19 +4,16 @@ const expect = chai.expect;
 const Gun = require('../lib/gun.js');
 const Bullet = require('../lib/bullet.js');
 const Player = require('../lib/player.js');
+const Mushroom = require('../lib/mushroom.js');
 
 describe('Gun', function() {
-  let x;
-  let y;
-  let dx;
-  let dy;
   let gun;
   let bullet;
   let player;
   beforeEach(function() {
-    player = new Player(x, y, dx, dy);
-    gun = new Gun(this.player);
-    bullet = new Bullet(player.x, player.y);
+    player = new Player(400, 700, 12, 12);
+    gun = new Gun(player);
+    bullet = new Bullet(400, 700);
   });
   
   it('expects to have a player', function() {
@@ -37,23 +34,8 @@ describe('Gun', function() {
     expect(gun.bulletArray.length).to.equal(1);
   });
 
-  it.skip('expects be able to shoot', function() {
-    //Pre-condition:
-    //gun.isShooting = true;
-    expect(gun.bulletArray.length).to.equal(0);
-    //gun.shoot();
-
-    //gun.createBullets() is called?
-    //gun.isShooting = false;
-  });
-
-  it.skip('expects create bullets', function() {
-    gun.createBullets();
-    expect(bullet.x).to.equal(player.x + player.width/2 -1);
-    expect(bullet.y).to.equal(player.y - 3);
-  });
-
   it.skip('expects be able to collide bullets and mushrooms', function() {
-
+    mushroom = new Mushroom(400,700);
+    let collideShroom = bullet.isColliding(mushroom);
   });
 });
