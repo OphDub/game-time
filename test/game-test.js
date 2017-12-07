@@ -11,10 +11,15 @@ describe('Game', function() {
   let game;
   let canvas;
   let context;
+  
   beforeEach(function() {
     canvas = { width: 720, height: 768 }
     game = new Game(canvas, context);
     centipede = new CentipedeWhole();
+  });
+
+  it('expects to return true', function() {
+    expect(true).to.equal(true);
   });
 
   it('expects to have a canvas and context', function() {

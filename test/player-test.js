@@ -11,41 +11,45 @@ describe('Player', function() {
 
   beforeEach(function() {
     player = new Player (360, 700, 12, 12, 'blue');
-    gun = new Gun;
+    gun = new Gun(player);
   });
 
-  it('expects to have x,y values', function() {
+  it('expects to return true', function() {
+    expect(true).to.equal(true);
+  });
+
+  it('expects to have x, y values', function() {
     expect(player.x).to.equal(360);
     expect(player.y).to.equal(700);
   });
 
-  it('expects to have dx,dy values', function() {
+  it('expects to have dx, dy values', function() {
     expect(player.dx).to.equal(12);
     expect(player.dy).to.equal(12);
   });
 
-  it('expects to have a width and height', function() {
+  it('expects to have a width and height by default', function() {
     expect(player.width).to.equal(24);
     expect(player.height).to.equal(24);
   });
 
   it('expects to have a Gun', function() {
-    expect(player.gun).to.equal(player.gun);
+    expect(player.gun).to.deep.equal(gun);
   });
 
-  it('expects to have a direction of null', function() {
+  it('expects to have a direction of null by default', function() {
     expect(player.direction).to.equal(null);
   });
 
   it('expects to have a color', function() {
-    expect(player.color).to.equal(player.color);
+    expect(player.color).to.equal('blue');
   });
 
-  it('expects to have a score', function() {
+  it('expects to have a score of zero by default', function() {
     expect(player.score).to.equal(0);
   });
 
-  it('expects to have 3 lives', function() {
+  it('expects to have 3 lives by default', function() {
     expect(player.lives).to.equal(3);
   });
 
@@ -56,29 +60,47 @@ describe('Player', function() {
     expect(collideShroom).to.equal(true);
   });
 
-  it('expects to move down, up, left, and right', function() {
-    expect(player.y).to.equal(700);
+  it('expects to move down', function() {
     player.direction = 'down';
-    player.move();
-    expect(player.y).to.equal(712);
 
-    expect(player.y).to.equal(712);
-    player.direction = 'up';
-    player.move();
     expect(player.y).to.equal(700);
-
-    expect(player.x).to.equal(360);
-    player.direction = 'left';
+    
     player.move();
-    expect(player.x).to.equal(348);
-
-    expect(player.x).to.equal(348);
-    player.direction = 'right';
-    player.move();
-    expect(player.x).to.equal(360);
+    
+    expect(player.y).to.equal(712);
   });
 
-  it('expects die to decrease lives and change x,y coordinates', function() {
+  it('expects to move up', function() {
+    player.direction = 'up';
+
+    expect(player.y).to.equal(700);
+
+    player.move();
+
+    expect(player.y).to.equal(688);
+  });
+
+  it('expects to move left', function() {
+    player.direction = 'left';
+
+    expect(player.x).to.equal(360);
+
+    player.move();
+
+    expect(player.x).to.equal(348);
+  });
+
+  it('expects to move right', function() {
+    player.direction = 'right';
+
+    expect(player.x).to.equal(360);
+
+    player.move();
+
+    expect(player.x).to.equal(372);
+  });
+
+  it('expects die to decrease lives and revert back to starting x, y coordinates', function() {
     expect(player.lives).to.equal(3);
     expect(player.x).to.equal(360);
     expect(player.y).to.equal(700);

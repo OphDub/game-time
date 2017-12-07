@@ -13,30 +13,33 @@ describe('CentipedeWhole', function() {
     centipede = new CentipedeWhole();
   });
 
-  it('expect to return true', function() {
+  it('expects to return true', function() {
     expect(true).to.equal(true);
   });  
 
-  it('expect to have an empty nested array', function() {
+  it('expects to have an empty nested array', function() {
     expect(centipede.segmentsArray).to.deep.equal([[]]);
   });
 
-  it('expect to make an array of an array of 12 segments when created', function() {
+  it('expects to make an array of an array of 12 segments when created', function() {
     centipede.createCentipede();
+
     expect(centipede.segmentsArray[0].length).to.equal(12);
   });
 
-  it('expect the first segment of each array of segmentsArray to have a color of blue', function() {
+  it('expects the first segment of each array of segmentsArray to have a color of blue', function() {
     centipede.createCentipede();
+
     expect(centipede.segmentsArray[0][0].color).to.equal('blue');
   });
 
-  it('expect everything but the head of each array of segmentsArray to have a color of red', function() {
+  it('expects everything but the head of each array of segmentsArray to have a color of red', function() {
     centipede.createCentipede();
+
     expect(centipede.segmentsArray[0][1].color).to.equal('red');
   });
 
-  it('expect centipede to split into new arrays when there is a bullet collision', function() {
+  it('expects centipede to split into new arrays when there is a bullet collision', function() {
     let player = new Player();
     let shroomArray = [];
     let bullet = new Bullet(144, 120);
@@ -60,7 +63,7 @@ describe('CentipedeWhole', function() {
 
   });
 
-  it('expect player score to increment by 100 when centipede segment collides with bullet', function() {
+  it('expects player score to increment by 100 when centipede segment collides with bullet', function() {
     let player = new Player();
     let shroomArray = [];
     let bullet = new Bullet(144, 120);
@@ -76,4 +79,4 @@ describe('CentipedeWhole', function() {
 
     expect(player.score).to.equal(100);    
   });  
-})
+});

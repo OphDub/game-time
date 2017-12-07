@@ -10,27 +10,34 @@ describe('Gun', function() {
   let gun;
   let bullet;
   let player;
+
   beforeEach(function() {
     player = new Player(400, 700, 12, 12);
     gun = new Gun(player);
     bullet = new Bullet(400, 700);
   });
+
+  it('expects to return true', function() {
+    expect(true).to.equal(true);
+  });
   
   it('expects to have a player', function() {
-    expect(gun.player).to.equal(gun.player);
+    expect(gun.player).to.deep.equal(player);
   });
 
   it('expects to have an empty array', function() {
     expect(gun.bulletArray.length).to.equal(0);
   });
 
-  it('expects the isShooting property to be false', function() {
+  it('expects the isShooting property to be false by default', function() {
     expect(gun.isShooting).to.equal(false);
   });
 
   it('expects to create bullets', function() {
     expect(gun.bulletArray.length).to.equal(0);
+
     gun.createBullets();
+    
     expect(gun.bulletArray.length).to.equal(1);
   });
 
