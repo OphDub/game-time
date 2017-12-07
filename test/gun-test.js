@@ -34,20 +34,41 @@ describe('Gun', function() {
     expect(gun.bulletArray.length).to.equal(1);
   });
 
-  it('expects be able to collide bullets and mushrooms', function() {
-    mushroom = new Mushroom(400,700);
+  it('expects collision between bullet and mushroom to reduce mushroom lives and height and splice bullet from gun array', function() {
+    let mushroom = new Mushroom(400,700);
     let shroomArray = [mushroom];
-    let bulletArray = [bullet];
+    gun.bulletArray = [bullet];
 
     expect(shroomArray.length).to.equal(1);
     expect(mushroom.lives).to.equal(4);
-    expect(bulletArray.length).to.equal(1);
+    expect(mushroom.height).to.equal(24);
+    expect(gun.bulletArray.length).to.equal(1);
 
     gun.bulletCollision(shroomArray);
 
     expect(shroomArray.length).to.equal(1);
-    // expect(gun.bulletArray.length).to.equal(0);
+    expect(gun.bulletArray.length).to.equal(0);
     expect(mushroom.lives).to.equal(3);
+    expect(mushroom.height).to.equal(18);
+  });
 
+  it('expects to collision between bullet and mushroom to splice mushroom from array when mushroom has zero lives', function() {
+    let mushroom = new Mushroom(400,700);
+    let shroomArray = [mushroom];
+    gun.bulletArray = [bullet];
+
+    expect(shroomArray.length).to.equal(1);
+    expect(mushroom.lives).to.equal(4);
+    expect(gun.bulletArray.length).to.equal(1);
+
+    gun.bulletCollision(shroomArray);
+    gun.bulletArray = [bullet];
+    gun.bulletCollision(shroomArray);
+    gun.bulletArray = [bullet];
+    gun.bulletCollision(shroomArray);
+    gun.bulletArray = [bullet];
+    gun.bulletCollision(shroomArray);
+
+    expect(shroomArray.length).to.equal(0);
   });
 });
