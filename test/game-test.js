@@ -71,8 +71,14 @@ describe('Game', function() {
     expect(game.player.score).to.equal(0);
   });
 
-  it('expects to have a setLevel method that increases the centipede segment speed until the game is won', function() {
+  it('expects to win game if level is greater than 3', function() {
+    expect(game.isWon).to.equal(false);
     
+    game.level = 4;
+    
+    game.setLevel(game.level);
+
+    expect(game.isWon).to.equal(true);
   });
 
   it('expects to set isWon property to true when game is won', function() {
