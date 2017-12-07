@@ -34,8 +34,20 @@ describe('Gun', function() {
     expect(gun.bulletArray.length).to.equal(1);
   });
 
-  it.skip('expects be able to collide bullets and mushrooms', function() {
+  it('expects be able to collide bullets and mushrooms', function() {
     mushroom = new Mushroom(400,700);
-    let collideShroom = bullet.isColliding(mushroom);
+    expect(mushroom.lives).to.equal(4);
+    let shroomArray = [mushroom];
+    
+    // expect(gun.bulletArray.length).to.equal(0);
+    // gun.createBullets();
+    // expect(gun.bulletArray.length).to.equal(1);
+
+    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray);
+    gun.bulletCollision(shroomArray);
+    expect(mushroom.lives).to.equal(0);
+
   });
 });
