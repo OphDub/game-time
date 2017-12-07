@@ -46,11 +46,33 @@ describe('Game', function() {
     expect(game.isLost).to.equal(false);
   });
 
+  it('expects to have a instruction property set to true by default', function() {
+    expect(game.instruction).to.equal(true);
+  });
+
+  it('expects to have a level value of 1 by default', function() {
+    expect(game.level).to.equal(1);
+  });
+
   it('expects to have startGame method that creates a centipede array and an array of 45 mushrooms', function() {
     game.startGame();
 
     expect(game.centipede.segmentsArray.length).to.equal(1);
     expect(game.mushroomArray.length).to.equal(45);
+  });
+
+  it('expects to have a resetGame method that sets player lives to 3 and score to 0', function() {
+    game.player.lives = 1;
+    game.player.score = 300;
+
+    game.resetGame();
+
+    expect(game.player.lives).to.equal(3);
+    expect(game.player.score).to.equal(0);
+  });
+
+  it('expects to have a setLevel method that increases the centipede segment speed until the game is won', function() {
+    
   });
 
   it('expects to set isWon property to true when game is won', function() {
