@@ -3,9 +3,8 @@ const expect = chai.expect;
 
 const CentipedeSeg = require('../lib/centipede-seg.js');
 const CentipedeWhole = require('../lib/centipede-whole.js');
-// const Bullet = require('../lib/bullet.js');
-// const Mushroom = require('../lib/mushroom.js');
-// const Player = require('../lib/player.js');
+const Mushroom = require('../lib/mushroom.js');
+const Player = require('../lib/player.js');
 const Game = require('../lib/game.js'); 
 
 describe('Game', function() {
@@ -24,7 +23,8 @@ describe('Game', function() {
   });
 
   it('expects to have a player', function() {
-    expect(game.player).to.equal(game.player);
+    let playerTest = new Player (348, 728, 12, 24, 'magenta');
+    expect(game.player).to.deep.equal(playerTest);
   });
 
   it('expects to have an empty bulletArray', function() {
@@ -32,37 +32,83 @@ describe('Game', function() {
   });
 
   it('expects to have a centipede', function() {
-    expect(game.centipede).to.equal(game.centipede);
+    let centipedeTest = new CentipedeWhole();
+    expect(game.centipede).to.deep.equal(centipedeTest);
   });
 
-  it('expects to have a won and lost properties', function() {
-    expect(game.isWon).to.equal(game.isWon);
-    expect(game.isLost).to.equal(game.isLost);
-  });
-
-  it.skip('expects to have startGame method', function() {
-    game.startGame();
-    expect(centipede.segmentsArray.length).to.equal(1);
-    expect(game.mushoomArray.length).to.equal(45);
-  });
-
-  it('expects to have a winGame method', function() {
+  it('expects to have win and lost properties set to false by default', function() {
     expect(game.isWon).to.equal(false);
-    game.winGame();
-    expect(game.isWon).to.equal(true);
+    expect(game.isLost).to.equal(false);
   });
 
-  it.skip('expects to have an update function', function() {
+  it('expects to have startGame method that creates a centipede array and an array of 45 mushrooms', function() {
+    game.startGame();
 
-  });
-
-  it.skip('expects to create a mushroom array', function() {
-    expect(game.mushroomArray).to.equal(undefined);
-    game.createMushroomArray();
+    expect(game.centipede.segmentsArray.length).to.equal(1);
     expect(game.mushroomArray.length).to.equal(45);
   });
 
-  it.skip('expects to check if the player and mushroom array are colliding', function() {
-
+  it('expects to set isWon property to true when game is won', function() {
+    expect(game.isWon).to.equal(false);
+    
+    game.winGame();
+    
+    expect(game.isWon).to.equal(true);
   });
+
+  it('expects to create a mushroom array of 45 mushrooms', function() {
+    expect(game.mushroomArray).to.equal(undefined);
+
+    game.createMushroomArray();
+    
+    expect(game.mushroomArray.length).to.equal(45);
+  });
+
+  it('expects to set the player x coordinate to the mushroom (x + mushroom width) when the player collides on its left', function() {
+    let mushroom = new Mushroom (100, 120);
+    game.mushroomArray = [mushroom];
+    game.player = new Player(124, 120, 6, 6, 'white');
+    game.player.direction === 'left';
+
+    game.player.move();
+    game.checkShrooms(game.player, game.mushroomArray);
+
+    expect(game.player.x).to.equal(124);
+  });
+
+  it('expects to set the player x coordinate to the collided mushroom (x - player width) when the player collides on its right', function() {
+    let mushroom = new Mushroom (100, 120);
+    game.mushroomArray = [mushroom];
+    game.player = new Player(76, 120, 6, 6, 'white');
+    game.player.direction === 'right';
+
+    game.player.move();
+    game.checkShrooms(game.player, game.mushroomArray);
+
+    expect(game.player.x).to.equal(76);
+  });
+
+  it('expects to set the player y coordinate to the collided mushroom (y + mushroom height) when the player collides on its top', function() {
+    let mushroom = new Mushroom (100, 120);
+    game.mushroomArray = [mushroom];
+    game.player = new Player(100, 144, 6, 6, 'white');
+    game.player.direction === 'up';
+
+    game.player.move();
+    game.checkShrooms(game.player, game.mushroomArray);
+
+    expect(game.player.y).to.equal(144);
+  });
+
+  it('expects to set the player y coordinate to the collided mushroom (y - player height) when the player collides on its bottom', function() {
+    let mushroom = new Mushroom (100, 120);
+    game.mushroomArray = [mushroom];
+    game.player = new Player(100, 96, 6, 6, 'white');
+    game.player.direction === 'down';
+
+    game.player.move();
+    game.checkShrooms(game.player, game.mushroomArray);
+
+    expect(game.player.y).to.equal(96);
+  });  
 });
