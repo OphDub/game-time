@@ -159,6 +159,7 @@ describe('CentipedeSeg', function() {
 
   it('expect to detect collision with player and call player.die method to set player x, y and reduce lives', function() {
     let player = new Player(130, 118, 6, 6, 'blue');
+    let game = new Game();
 
     expect(player.lives).to.equal(3);
 
