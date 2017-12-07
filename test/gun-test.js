@@ -70,5 +70,28 @@ describe('Gun', function() {
     gun.bulletCollision(shroomArray, player);
 
     expect(shroomArray.length).to.equal(0);
+    expect(player.score).to.equal(10);
+  });
+
+  it('expects to increase player score when a mushroom is spliced from mushroom array', function() {
+    let mushroom = new Mushroom(400,700);
+    let shroomArray = [mushroom];
+    gun.bulletArray = [bullet];
+
+    expect(shroomArray.length).to.equal(1);
+    expect(mushroom.lives).to.equal(4);
+    expect(gun.bulletArray.length).to.equal(1);
+    expect(player.score).to.equal(0);
+
+    gun.bulletCollision(shroomArray, player);
+    gun.bulletArray = [bullet];
+    gun.bulletCollision(shroomArray, player);
+    gun.bulletArray = [bullet];
+    gun.bulletCollision(shroomArray, player);
+    gun.bulletArray = [bullet];
+    gun.bulletCollision(shroomArray, player);
+
+    expect(shroomArray.length).to.equal(0);
+    expect(player.score).to.equal(10);
   });
 });
