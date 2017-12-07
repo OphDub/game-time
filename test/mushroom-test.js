@@ -5,6 +5,7 @@ const Mushroom = require('../lib/Mushroom.js');
 
 describe('Mushroom', function() {
   let mushroom;
+
   beforeEach(function() {
     mushroom = new Mushroom();
   });
@@ -31,7 +32,7 @@ describe('Mushroom', function() {
     expect(mushroom.lives).to.equal(4);
   });
 
-  it('expects to be able to take x and y arguments', function() {
+  it('expects to be able to take in an x and y', function() {
     mushroom = new Mushroom(50, 50);
 
     expect(mushroom.x).to.equal(50);

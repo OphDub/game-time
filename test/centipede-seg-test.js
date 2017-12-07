@@ -17,14 +17,10 @@ describe('CentipedeSeg', function() {
     expect(true).to.equal(true);
   });
 
-  it('expects to not have reached lower half by default', function() {
-    expect(centipedeSeg.reachedLowerHalf).to.equal(false);
-  }); 
-
   it('expects to have an x and y', function() {
     expect(centipedeSeg.x).to.equal(120);
     expect(centipedeSeg.y).to.equal(120);
-  })
+  });
 
   it('expects to have an x and y velocity', function() {
     expect(centipedeSeg.dx).to.equal(6);
@@ -37,7 +33,11 @@ describe('CentipedeSeg', function() {
 
   it('expects to have a color', function() {
     expect(centipedeSeg.color).to.equal('blue');
-  })
+  });
+
+  it('expects to not have reached lower half by default', function() {
+    expect(centipedeSeg.reachedLowerHalf).to.equal(false);
+  }); 
 
   it('expects to be able to move along the x axis', function() {
     expect(centipedeSeg.x).to.equal(120);
@@ -47,7 +47,7 @@ describe('CentipedeSeg', function() {
     expect(centipedeSeg.x).to.equal(126);
   });
 
-  it('expects to switch x direction when segment hits the left canvas wall', function() {
+  it('expects to switch x velocity when segment hits the left canvas wall', function() {
     let centipedeSeg = new CentipedeSeg(12, 36, -6, 24, 12, 'blue');
 
     centipedeSeg.move();
@@ -71,7 +71,7 @@ describe('CentipedeSeg', function() {
     expect(centipedeSeg.y).to.equal(60);
   });
 
-  it('expects to switch x direction when segment hits the right canvas wall', function() {
+  it('expects to switch x velocity when segment hits the right canvas wall', function() {
     let centipedeSeg = new CentipedeSeg(708, 36, 6, 24, 12, 'blue');
 
     centipedeSeg.move();
@@ -157,7 +157,7 @@ describe('CentipedeSeg', function() {
     expect(centipedeSeg.y).to.equal(144);
   });
 
-  it('expects to detect collision with player and call player.die method to set player x, y and reduce lives', function() {
+  it('expects to detect collision with player and call player.die method to set player x, y and reduce player lives', function() {
     let player = new Player(130, 118, 6, 6, 'blue');
 
     expect(player.lives).to.equal(3);
@@ -168,7 +168,6 @@ describe('CentipedeSeg', function() {
     expect(player.x).to.equal(348);
     expect(player.y).to.equal(728);
   });
-
 });
 
 
