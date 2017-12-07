@@ -31,16 +31,16 @@ describe('CentipedeWhole', function() {
     expect(centipede.segmentsArray[0].length).to.equal(12);
   });
 
-  it('expects the first segment of each array of segmentsArray to have a color of blue', function() {
+  it('expects the first segment of each array of segmentsArray to have a color of magenta #B43089', function() {
     centipede.createCentipede();
 
-    expect(centipede.segmentsArray[0][0].color).to.equal('blue');
+    expect(centipede.segmentsArray[0][0].color).to.equal('#B43089');
   });
 
-  it('expects everything but the head of each array of segmentsArray to have a color of red', function() {
+  it('expects everything but the head of each array of segmentsArray to have a color of blue #03A3C6', function() {
     centipede.createCentipede();
 
-    expect(centipede.segmentsArray[0][1].color).to.equal('red');
+    expect(centipede.segmentsArray[0][1].color).to.equal('#03A3C6');
   });
 
   it('expects centipede to split into new arrays when there is a bullet collision', function() {

@@ -24,9 +24,9 @@ describe('Mushroom', function() {
     expect(mushroom.y).to.equal(mushroom.y);
   });
 
-  it('expects to have a default color', function() {
-    expect(mushroom.color).to.equal('green');
-  })
+  it('expects to have a color array', function() {
+    expect(mushroom.colorArray.length).to.equal(2);
+  });
 
   it('expects to have a default number of lives', function() {
     expect(mushroom.lives).to.equal(4);

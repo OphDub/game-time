@@ -28,7 +28,7 @@ describe('Game', function() {
   });
 
   it('expects to have a player', function() {
-    let playerTest = new Player (348, 728, 12, 24, 'magenta');
+    let playerTest = new Player (348, 728, 12, 24, 'white');
     expect(game.player).to.deep.equal(playerTest);
   });
 
