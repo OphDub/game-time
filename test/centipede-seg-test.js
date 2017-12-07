@@ -4,11 +4,13 @@ const expect = chai.expect;
 const CentipedeSeg = require('../lib/centipede-seg.js');
 const Bullet = require('../lib/bullet.js');
 const Mushroom = require('../lib/mushroom.js');
+const Player = require('../lib/player.js');
 const Game = require('../lib/game.js'); 
 
 describe('CentipedeSeg', function() {
   let centipedeSeg;
   beforeEach(function() {
+   
     centipedeSeg = new CentipedeSeg(120, 120, 6, 24, 12, 'blue');
   });
 
@@ -117,6 +119,55 @@ describe('CentipedeSeg', function() {
     centipedeSeg.move();
 
     expect(centipedeSeg.reachedLowerHalf).to.equal(true);
+  });
+
+  it('expect to not go below 550 on the y axis if it has already reached lower half', function() {
+    let centipedeSeg = new CentipedeSeg(672, 552, 48, -48, 12, 'blue');
+    centipedeSeg.reachedLowerHalf = true;
+    
+    expect(centipedeSeg.dy).to.equal(-48);
+
+    centipedeSeg.move();
+
+    expect(centipedeSeg.dy).to.equal(48);
+    expect(centipedeSeg.y).to.equal(648);
+  });
+
+  it('expect to collide with objects when they are in the same x and y plane', function() {
+    let bullet = new Bullet(120, 118);
+    let collision = centipedeSeg.isColliding(bullet);
+
+    expect(collision).to.equal(true);
+  });
+
+  it('expect to detect collision with mushrooms and change the x velocity', function() {
+    let shroom = new Mushroom(130, 118);
+    let shroomArray = [shroom];
+
+    centipedeSeg.checkShrooms(shroomArray);
+
+    expect(centipedeSeg.dx).to.equal(-6);
+  });
+
+  it('expect to detect collision with mushrooms and move down one grid', function() {
+    let shroom = new Mushroom(130, 118);
+    let shroomArray = [shroom];
+
+    centipedeSeg.checkShrooms(shroomArray);
+
+    expect(centipedeSeg.y).to.equal(144);
+  });
+
+  it('expect to detect collision with player and call player.die method to set player x, y and reduce lives', function() {
+    let player = new Player(130, 118, 6, 6, 'blue');
+
+    expect(player.lives).to.equal(3);
+
+    centipedeSeg.killPlayer(player);
+
+    expect(player.lives).to.equal(2);
+    expect(player.x).to.equal(348);
+    expect(player.y).to.equal(728);
   });
 
 });
