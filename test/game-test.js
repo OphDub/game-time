@@ -40,10 +40,6 @@ describe('Game', function() {
     expect(game.isLost).to.equal(game.isLost);
   });
 
-  it('expects to have a score', function() {
-    expect(game.score).to.equal(0);
-  });
-
   it.skip('expects to have startGame method', function() {
     game.startGame();
     expect(centipede.segmentsArray.length).to.equal(1);
