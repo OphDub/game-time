@@ -119,6 +119,24 @@ describe('CentipedeSeg', function() {
     expect(centipedeSeg.reachedLowerHalf).to.equal(true);
   });
 
+  it('expect to not go below 550 on the y axis if it has already reached lower half', function() {
+    let centipedeSeg = new CentipedeSeg(672, 552, 48, -48, 12, 'blue');
+    centipedeSeg.reachedLowerHalf = true;
+    
+    expect(centipedeSeg.dy).to.equal(-48);
+
+    centipedeSeg.move();
+
+    expect(centipedeSeg.dy).to.equal(48);
+    expect(centipedeSeg.y).to.equal(648);
+  })
+
+  it('expect to collide with bullet when objects are in the same x and y plane', function() {
+    let bullet = new Bullet(120, 124);
+
+
+  })
+
 });
 
 
