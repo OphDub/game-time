@@ -81,6 +81,31 @@ describe('Game', function() {
     expect(game.isWon).to.equal(true);
   });
 
+  it('expects to set Game property to lost if player lives equals zero', function() {
+    expect(game.player.lives).to.equal(3);
+
+    game.player.die();
+    game.player.die();
+    game.player.die();
+
+    expect(game.player.lives).to.equal(0);
+    game.update();
+
+    expect(game.isLost).to.equal(true);
+  });
+
+  it('expects to increase level of the game and the centipede level when the centipede array.length is equal to 0', function() {
+    expect(game.level).to.equal(1);
+    expect(game.centipede.level).to.equal(1);
+
+    game.centipede.segmentsArray = [];
+
+    game.update();
+
+    expect(game.level).to.equal(2);
+    expect(game.centipede.level).to.equal(2);
+  });
+
   it('expects to set isWon property to true when game is won', function() {
     expect(game.isWon).to.equal(false);
     
