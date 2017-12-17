@@ -1,0 +1,50 @@
+* {
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'arcadeclassicregular', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 1.3em;
+  margin: 1em 0;
+}
+
+h2 {
+  font-size: 1em;
+  text-align: center;
+  margin: 0.5em 10px;
+}
+
+#game {
+  border: 1px dashed white;
+  margin: auto;
+  display: block;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 25%;
+  height: 768px;
+  padding: 40px 20px;
+  
+}
+
+.yellow {
+  color: #EFEA5A;
+}
