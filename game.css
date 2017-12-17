@@ -1,5 +1,15 @@
+
+
 body {
   background-color: black;
+  font-family: 'arcadeclassicregular', sans-serif;
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #game {
