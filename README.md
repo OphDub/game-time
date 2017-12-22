@@ -1,4 +1,4 @@
-# Game Time: Unicorn vs Stars (Centipede variation) (FE - Module 2)
+# Game Time: Unicorn vs Stars (Centipede) (FE - Module 2)
 
 ## Project Spec:
 Intent for this project was to re-create a game using HTML canvas and OOP (object-oriented programming). Our team chose the Atari classic, Centipede.
