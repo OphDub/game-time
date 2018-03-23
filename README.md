@@ -1,10 +1,11 @@
-# Game Time: Unicorn vs Stars (Centipede) (FE - Module 2)
+# Game Time: Unicorn vs Clouds (Centipede) (FE - Module 2)
 
 ## Project Spec:
+![Centipede screen cap](http://thelawleys.com/images/centipede/centanim.gif)
+
+Intent for this project was to re-create a game using HTML canvas and OOP (object-oriented programming). Our team chose the Atari classic, Centipede and replaced the traditional Centipede with clouds and the player with a Unicorn.
+
 ![game screen cap](https://i.imgur.com/jez0vl2.png)
-
-
-Intent for this project was to re-create a game using HTML canvas and OOP (object-oriented programming). Our team chose the Atari classic, Centipede.
 
 ## Initial Setup
 
