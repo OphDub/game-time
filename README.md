@@ -32,6 +32,6 @@ To run the test suites for this project:
 
 ## Contributors
 
-[Amanda Tjan](https://github.com/soytjan)
-[Ophus Wong](https://github.com/OphDub)
+- [Amanda Tjan](https://github.com/soytjan)
+- [Ophus Wong](https://github.com/OphDub)
 
